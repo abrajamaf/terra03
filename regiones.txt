@@ -1,0 +1,7 @@
+ECS
+Region Name      Region       Endpoint                           Protocol
+LA-Mexico City1  na-mexico-1  ecs.na-mexico-1.myhuaweicloud.com  HTTPS
+LA-Mexico City2  la-north-2   ecs.la-north-2.myhuaweicloud.com   HTTPS
+
+CCE
+LA-Mexico City1  na-mexico-1  cce.na-mexico-1.myhuaweicloud.com  HTTPS
