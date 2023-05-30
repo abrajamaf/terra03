@@ -22,7 +22,7 @@ resource "huaweicloud_vpc" "vpc_with_tags" {
     Ambiente = "DEV"
     Otrigen  = "terraform"
   }
-
+}
 
 resource "huaweicloud_vpc_subnet" "subnet1" {
   name       = "terra1-web"
