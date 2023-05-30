@@ -34,14 +34,14 @@ resource "huaweicloud_vpc_subnet" "subnet1" {
 resource "huaweicloud_vpc_subnet" "subnet2" {
   name       = "terra1-app"
   cidr       = "172.24.11.0/24"
-  gateway_ip = var.terra1_gateway_ip
+  gateway_ip = "172.24.11.1"
   vpc_id     = huaweicloud_vpc.vpc_with_tags.id
   # dns_list   = ["100.125.1.250", "100.125.129.250"]
 }
 resource "huaweicloud_vpc_subnet" "subnet3" {
   name       = "terra2-db"
   cidr       = "172.24.12.0/24"
-  gateway_ip = var.terra1_gateway_ip
+  gateway_ip = "172.24.12.1"
   vpc_id     = huaweicloud_vpc.vpc_with_tags.id
   # dns_list   = ["100.125.1.250", "100.125.129.250"]
 }
