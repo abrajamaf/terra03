@@ -30,11 +30,11 @@ resource "huaweicloud_vpc" "vpc_terra2" {
 }
 
 resource "huaweicloud_vpc" "vpc_with_tags" {
-  name = var.vpc_name
-  cidr = var.vpc_cidr
+  name = var.vpc_cidr_terra1
+  cidr = var.vpc_cidr_terra1
 
   tags = {
-    foo = "bar"
-    key = "value"
+    Ambiente = "DEV"
+    Otrigen = "trrraform"
   }
 }
