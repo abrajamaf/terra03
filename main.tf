@@ -35,6 +35,6 @@ resource "huaweicloud_vpc" "vpc_with_tags" {
 
   tags = {
     Ambiente = "DEV"
-    Otrigen = "trrraform"
+    Otrigen = "terraform"
   }
 }
