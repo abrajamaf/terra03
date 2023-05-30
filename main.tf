@@ -53,7 +53,7 @@ resource "huaweicloud_vpc_subnet" "subnet3" {
   name              = "terra2-db"
   cidr              = "172.24.12.0/24"
   gateway_ip        = "172.24.12.1"
-  ipv6_enable       = true
+  ipv6_enable       = false
   vpc_id            = huaweicloud_vpc.vpc_with_tags.id
   availability_zone = data.huaweicloud_availability_zones.mexico_2.names[0]
   # dns_list   = ["100.125.1.250", "100.125.129.250"]
