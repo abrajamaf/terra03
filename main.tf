@@ -5,7 +5,7 @@ variable "vpc_terra1" {
   default = "huaweicloud_vpc"
 }
 
-variable "vpc_terra1" {
+variable "vpc_terra2" {
   default = "huaweicloud_vpc"
 }
 
