@@ -1,35 +1,40 @@
 
-resource "huaweicloud_compute_instance" "terra001" {
-  name             = "BID-TERRA01"
-  image_id         = "7d8e8da9-1d10-4a0d-8b3e-fef3ffcfc948"
-  flavor_name      = "s6.medium.2"
-  security_groups  = ["LAN"]
-  system_disk_type = "SAS"
-  network {
-    uuid = "c8afe385-7b79-48fd-9c9b-842b3713d4ed"
-  }
-  user_data = <<-EOF
-              #!/bin/bash
-              echo "Hola Terraformers!" > index.html
-              nohup busybox httpd -f -p 8080 &
-              EOF
+# Nombres de los VPCs
+
+variable "vpc_terra1" {
+  default = "huaweicloud_vpc"
 }
 
-resource "huaweicloud_compute_instance" "terra002" {
-  region           = "na-mexico-1"
-  name             = "BID-TERRA02"
-  image_id         = "c9f6ab45-1976-4491-87e5-303b1d0fdc08"
-  flavor_name      = "s6.medium.2"
-  security_groups  = ["LANtoLAN-PrePprod-S138"]
-  system_disk_type = "SAS"
-  network {
-    uuid = "958df2d4-b874-497c-a852-26a40448bad6"
-  }
-  user_data = <<-EOF
-              #!/bin/bash
-              echo "Hola Terraformers!" > index.html
-              nohup busybox httpd -f -p 8080 &
-              EOF
+variable "vpc_terra1" {
+  default = "huaweicloud_vpc"
 }
 
+# CIDR de los VPCs
+variable "vpc_cidr_terra1" {
+  default = "172.24.0.0/16"
+}
 
+variable "vpc_cidr_terra2" {
+  default = "192.25.0.0/16"
+}
+
+# crea los VPCs
+resource "huaweicloud_vpc" "vpc_terra1" {
+  name = var.vpc_terra1
+  cidr = var.vpc_cidr_terra1
+}
+
+resource "huaweicloud_vpc" "vpc_terra2" {
+  name = var.vpc_terra2
+  cidr = var.vpc_cidr_terra2
+}
+
+resource "huaweicloud_vpc" "vpc_with_tags" {
+  name = var.vpc_name
+  cidr = var.vpc_cidr
+
+  tags = {
+    foo = "bar"
+    key = "value"
+  }
+}
