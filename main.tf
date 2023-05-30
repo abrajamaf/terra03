@@ -2,11 +2,11 @@
 # Nombres de los VPCs
 
 variable "vpc_terra1" {
-  default = "huaweicloud_vpc"
+  default = "terra1_vpc"
 }
 
 variable "vpc_terra2" {
-  default = "huaweicloud_vpc"
+  default = "terra2_vpc"
 }
 
 # CIDR de los VPCs
