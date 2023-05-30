@@ -15,7 +15,7 @@ variable "vpc_cidr_terra1" {
 }
 
 variable "vpc_cidr_terra2" {
-  default = "192.25.0.0/16"
+  default = "172.25.0.0/16"
 }
 
 # crea los VPCs
