@@ -60,30 +60,30 @@ resource "huaweicloud_vpc_subnet" "subnet2" {
 }
 
 # Instancias ECS
-variable "secgroup_id" {}
+# variable "secgroup_id" {}
 
 
 resource "huaweicloud_compute_instance" "ecs_basic01" {
-  name               = "ecs_terra01"
-  image_id           = data.huaweicloud_images_image.myimage.id
-  flavor_id          = data.huaweicloud_compute_flavors.myflavor.id
+  name      = "ecs_terra01"
+  image_id  = data.huaweicloud_images_image.myimage.id
+  flavor_id = data.huaweicloud_compute_flavors.myflavor.ids[0]
   # security_group_ids = [var.secgoup_id]
   # availability_zone  = data.huaweicloud_availability_zones.mexico_2.names[0]
 
   network {
-    uuid = data.huaweicloud_vpc_subnet.subnet1.id
+    uuid = huaweicloud_vpc_subnet.subnet1.id
   }
 }
 
 resource "huaweicloud_compute_instance" "ecs_basic02" {
-  name               = "ecs_terra02"
-  image_id           = data.huaweicloud_images_image.myimage.id
-  flavor_id          = data.huaweicloud_compute_flavors.myflavor.id
+  name      = "ecs_terra02"
+  image_id  = data.huaweicloud_images_image.myimage.id
+  flavor_id = data.huaweicloud_compute_flavors.myflavor.ids[0]
   # security_group_ids = [var.secgroup_id]
-  # availability_zone  = data.huaweicloud_availability_zones.mexico_2.names[1]
+  availability_zone  = data.huaweicloud_availability_zones.mexico_2.names[1]
 
   network {
-    uuid = data.huaweicloud_vpc_subnet.subnet2.id
+    uuid = huaweicloud_vpc_subnet.subnet2.id
   }
 }
 
